@@ -1,0 +1,20 @@
+{
+ "total": 82109,
+ "core": 10842,
+ "originals": 106,
+ "tiers": {
+  "core": 10842,
+  "mixed": 29209,
+  "verbose": 41890,
+  "extended": 168
+ },
+ "langs": [
+  "de",
+  "en",
+  "es",
+  "ja",
+  "pt",
+  "zh"
+ ],
+ "tagged": 69563
+}
