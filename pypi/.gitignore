@@ -1,0 +1,5 @@
+src/kaomoji_dataset/data/
+dist/
+build/
+*.egg-info/
+__pycache__/

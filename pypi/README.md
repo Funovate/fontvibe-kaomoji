@@ -2,37 +2,32 @@
 
 **82,109 kaomoji** (Japanese text emoticons) with emotion, intent and subject labels in
 **six languages** — English, Japanese, Chinese, Spanish, Portuguese and German.
-Zero dependencies. 4.7 MB installed.
+No dependencies. 4.7 MB installed.
 
 ```bash
-npm i kaomoji-dataset
+pip install kaomoji-dataset
 ```
 
-```js
-const kaomoji = require('kaomoji-dataset');
+```python
+import kaomoji_dataset as kd
 
-kaomoji.search('happy', { limit: 3 });
-// → (◕‿◕)   (・∀・)ノ   ヽ(ˇ∀ˇ )ゞ
+[k["text"] for k in kd.search("happy", limit=3)]
+# → ['(◕‿◕)', '(・∀・)ノ', 'ヽ(ˇ∀ˇ )ゞ']
 
-// the same three — the labels are cross-lingual
-kaomoji.search('嬉しい', { limit: 3 });
-kaomoji.search('开心',   { limit: 3 });
+# the same three — the labels are cross-lingual
+kd.search("嬉しい", limit=3)
+kd.search("开心",  limit=3)
+kd.search("feliz", limit=3)
 
-kaomoji.random({ category: 'sad' }).text;  // → (╥﹏╥)
-kaomoji.stats.total;                       // → 82109
+kd.random(category="sad")["text"]   # → '(╥﹏╥)'
+kd.stats["total"]                   # → 82109
 ```
 
-ESM and TypeScript work out of the box:
-
-```ts
-import { search, byEmotion, stats, type Kaomoji } from 'kaomoji-dataset';
-```
-
-Try it without installing:
+Try it without writing any code:
 
 ```bash
-npx kaomoji-dataset 嬉しい -n 5
-npx kaomoji-dataset --categories
+kaomoji-dataset 嬉しい -n 5
+kaomoji-dataset --categories
 ```
 
 ## Why this instead of the other kaomoji packages
@@ -44,34 +39,48 @@ remembering which English word the author happened to pick.
 
 - **69,563 entries carry semantic labels** (85%) — emotion, intent, subject, drawn from a
   controlled vocabulary, not free text
-- **Names and keywords in all six languages** — searching `嬉しい`, `开心`, `feliz` and
-  `happy` returns the same entries
+- **Names and keywords in all six languages**, so the four queries above return the same rows
 - **Tiered by shape**, so you can ask for just the clean faces: `core` (10,842) are pure
   faces with no dialogue; `mixed` and `verbose` carry Japanese text alongside
 - **106 original kaomoji** designed for feelings that had none, marked `fontvibe-original`
 - **Rendering flags** — `ascii_safe`, `needs_cjk_font`, `display_width` — so you know which
-  ones survive a terminal, a tweet, or a font that has no CJK coverage
+  ones survive a terminal, a tweet, or a font with no CJK coverage
 
 ## API
 
+Every function returns plain `dict`s in the schema below — nothing to unwrap.
+
 | | |
 |---|---|
-| `all()` | every entry as an array |
-| `search(q, {lang, limit, tier})` | match names and keywords across all six languages |
-| `byCategory(name, {limit, tier})` | one category |
-| `byEmotion(label, {limit, tier})` | one emotion label |
-| `random({category, emotion, tier})` | one entry, or `null` |
-| `categories()` | `[{name, count}]`, most populous first |
+| `all()` | every entry as a list (`load()` is an alias, if you'd rather not shadow the builtin) |
+| `search(q, lang=None, limit=50, tier=None)` | match names and keywords across all six languages |
+| `by_category(name, limit=None, tier=None)` | one category |
+| `by_emotion(label, limit=None, tier=None)` | one emotion label |
+| `random(category=None, emotion=None, tier=None)` | one entry, or `None` |
+| `categories()` | `[{"name": ..., "count": ...}]`, most populous first |
 | `originals()` | the 106 marked `fontvibe-original` |
 | `stats` | totals, tier breakdown, language list |
 
 ### Cost
 
 The dataset ships gzipped and is parsed on first access, then cached. For the full 82,109,
-measured on Node 24 / Apple silicon: **~330 ms**, and it costs **212 MB of JS heap — about
-610 MB RSS**. That is not a small amount of memory; budget for it before you `require` this
-inside a serverless function. Every call after the first is free, so if you only need a
-handful of faces at startup, call `random()` or `search()` once and hold on to the result.
+measured on CPython 3.14 / Apple silicon: **~0.7 s** and **about 540 MB RSS**. That is not a
+small amount of memory; budget for it before you import this inside a worker. Every call
+after the first is free, so if you only need a handful of faces at import time, call
+`random()` or `search()` once and keep the result.
+
+Filtering does not avoid the parse — `by_category` still loads everything first. For a
+one-off extraction from a memory-constrained job, stream the file yourself instead:
+
+```python
+import gzip, json
+from pathlib import Path
+import kaomoji_dataset
+
+path = Path(kaomoji_dataset.__file__).parent / "data" / "kaomoji.jsonl.gz"
+with gzip.open(path, "rt", encoding="utf-8") as fh:
+    core = [json.loads(line) for line in fh if '"tier": "core"' in line]
+```
 
 ## Entry shape
 
@@ -103,7 +112,8 @@ handful of faces at startup, call `random()` or `search()` once and hold on to t
 }
 ```
 
-Full field reference: [SCHEMA.md](https://github.com/Funovate/fontvibe-kaomoji/blob/main/SCHEMA.md).
+Full field reference:
+[SCHEMA.md](https://github.com/Funovate/fontvibe-kaomoji/blob/main/SCHEMA.md).
 `id` is stable across releases.
 
 ## Other formats
@@ -112,6 +122,7 @@ This package carries the whole corpus as one gzipped JSONL. The GitHub repositor
 publishes it split by tier as plain JSON, and as a flat CSV, along with the coverage
 verification script:
 [Funovate/fontvibe-kaomoji](https://github.com/Funovate/fontvibe-kaomoji).
+There is a JavaScript package too: `npm i kaomoji-dataset`.
 
 ## License — CC BY 4.0 (attribution required)
 

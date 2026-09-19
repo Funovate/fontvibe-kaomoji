@@ -1,0 +1,55 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kaomoji-dataset"
+version = "1.0.2"
+description = "82,109 kaomoji (Japanese text emoticons) with emotion, intent and subject labels in six languages. No dependencies."
+readme = "README.md"
+requires-python = ">=3.8"
+license = "CC-BY-4.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Funovate Technology", email = "jacktu@fun-innovate.com" }]
+keywords = [
+  "kaomoji", "顔文字", "emoticon", "emoticons", "japanese",
+  "ascii-art", "text-emoji", "dataset", "nlp", "sentiment",
+  "multilingual", "emoji",
+]
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Natural Language :: English",
+  "Natural Language :: Japanese",
+  "Natural Language :: Chinese (Simplified)",
+  "Natural Language :: Spanish",
+  "Natural Language :: Portuguese",
+  "Natural Language :: German",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Text Processing :: Linguistic",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+  "Typing :: Typed",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://fontvibe.ai/tools/kaomoji"
+Source = "https://github.com/Funovate/fontvibe-kaomoji"
+Issues = "https://github.com/Funovate/fontvibe-kaomoji/issues"
+Documentation = "https://github.com/Funovate/fontvibe-kaomoji/blob/main/SCHEMA.md"
+
+[project.scripts]
+kaomoji-dataset = "kaomoji_dataset.__main__:main"
+
+# data/ is gitignored so the .gz is never committed twice; hatchling honours
+# VCS ignore files, so it has to be named explicitly or the wheel ships empty.
+[tool.hatch.build]
+artifacts = ["src/kaomoji_dataset/data/kaomoji.jsonl.gz"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/kaomoji_dataset"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/", "tests/", "scripts/", "README.md", "LICENSE", "NOTICE", "pyproject.toml"]
