@@ -76,7 +76,7 @@ clusters like `꙳★*ﾟ` (7 precedents), a face repeated in a row like `(p.-)(
 (10 precedents), and everything 3 characters long — 242 such entries are already here and
 all of them are real faces (`・ω・` `◕‿◕` `→_←`), so length alone was never a reason.
 
-Think something in that list is a real kaomoji? **Open an issue** — three rounds of exactly
+Think something in that list is a real kaomoji? **[Open an issue](https://github.com/Funovate/fontvibe-kaomoji/issues/new)** — three rounds of exactly
 that feedback loop, run against ourselves, is how rofimoji went from 93.0% to 100.0%.
 
 ## What's different
@@ -91,11 +91,12 @@ Not collected — designed, for feelings that had no kaomoji yet: 躺平 (lying 
 Marked `"origin": "fontvibe-original"`. Checked for collisions three ways
 (byte-exact / whitespace-insensitive / NFKC) against every collected entry: zero.
 
-```
-ㅡ(ᴗ_ᴗ)ㅡ        lying flat
-(⊃///ω///⊂)      social death
-ㅡ(￣ー￣)ㅡ✧      winning lying down
-```
+| | |
+|---|---|
+| `ㅡ(ᴗ_ᴗ)ㅡ` | lying flat — 躺平 |
+| `(⊃///ω///⊂)` | social death — 社死 |
+| `ㅡ(￣ー￣)ㅡ✧` | winning lying down — 躺赢 |
+| `(・ω・)…(・ω・)ﾉ?` | mamihlapinatapai — two people each waiting for the other to act |
 
 See [`data/originals.json`](data/originals.json).
 
@@ -124,8 +125,8 @@ An honestly empty field beats a plausible wrong one.
 `ascii_safe`, `needs_cjk_font`, `display_width` and the `tier` split are provided because
 no other dataset has them. Whether developers actually *want* them, **we don't know** —
 rofimoji has 1.1k stars with a single keyword per entry, which suggests existing needs are
-being met reasonably well. If you have an opinion, open an issue; that's the fastest way
-for us to find out.
+being met reasonably well. If you have an opinion, [open an issue](https://github.com/Funovate/fontvibe-kaomoji/issues/new);
+that's the fastest way for us to find out.
 
 ---
 
@@ -152,13 +153,13 @@ known pure-face samples. If you're building a picker for a non-Japanese audience
 import json, gzip
 rows = [json.loads(l) for l in gzip.open("data/kaomoji.jsonl.gz", "rt", encoding="utf-8")]
 
-happy_es = [r["text"] for r in rows if "feliz" in r["keywords"].get("es", [])]
+happy_es = [r["text"] for r in rows if "feliz" in r["keywords"].get("es", [])]   # 27,856
 safe     = [r for r in rows if r["tier"] == "core" and not r["needs_cjk_font"]]
 ```
 
 ```js
 import rows from './data/core.json' with { type: 'json' }
-const angry = rows.filter(r => r.keywords.ja?.includes('怒り'))
+const angry = rows.filter(r => r.keywords.ja?.includes('怒る'))   // 648 in core.json
 ```
 
 Field definitions: [SCHEMA.md](SCHEMA.md).
@@ -226,7 +227,7 @@ Nothing here is claimed as ours except the 106 marked `fontvibe-original`.
 
 ## Contributing
 
-Missing a source? Open an issue with a link — if it has entries we don't, we'll merge them
+Missing a source? [Open an issue](https://github.com/Funovate/fontvibe-kaomoji/issues/new) with a link — if it has entries we don't, we'll merge them
 and update the coverage table. Found a mislabelled entry? PRs welcome; `id` is stable.
 
 ---
