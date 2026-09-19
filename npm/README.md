@@ -2,7 +2,7 @@
 
 **82,109 kaomoji** (Japanese text emoticons) with emotion, intent and subject labels in
 **six languages** — English, Japanese, Chinese, Spanish, Portuguese and German.
-Zero dependencies. 4.7 MB installed.
+Zero dependencies. 4.8 MB installed.
 
 ```bash
 npm i kaomoji-dataset
@@ -38,8 +38,9 @@ npx kaomoji-dataset --categories
 ## Why this instead of the other kaomoji packages
 
 Most kaomoji packages ship a few hundred entries hard-coded in one file, keyed by an English
-word. This one is a **corpus**: 82,109 entries pulled from 11 upstream sources plus Japanese
-IME dictionaries, deduplicated, and labelled so you can query it by *meaning* rather than by
+word. This one is a **corpus**: 82,109 entries merged from 7 independent source families —
+four open-source projects, 20 Japanese IME dictionaries, a web collection and our own earlier
+library — deduplicated, and labelled so you can query it by *meaning* rather than by
 remembering which English word the author happened to pick.
 
 - **69,563 entries carry semantic labels** (85%) — emotion, intent, subject, drawn from a
@@ -57,7 +58,7 @@ remembering which English word the author happened to pick.
 | | |
 |---|---|
 | `all()` | every entry as an array |
-| `search(q, {lang, limit, tier})` | match names and keywords across all six languages |
+| `search(q, {lang, limit, tier})` | match names and keywords across all six languages; `limit` defaults to 50, `-1` returns every match |
 | `byCategory(name, {limit, tier})` | one category |
 | `byEmotion(label, {limit, tier})` | one emotion label |
 | `random({category, emotion, tier})` | one entry, or `null` |
@@ -102,6 +103,8 @@ handful of faces at startup, call `random()` or `search()` once and hold on to t
   "length": 5
 }
 ```
+
+The `keywords` above are abbreviated; the real record carries all six languages.
 
 Full field reference: [SCHEMA.md](https://github.com/Funovate/fontvibe-kaomoji/blob/main/SCHEMA.md).
 `id` is stable across releases.

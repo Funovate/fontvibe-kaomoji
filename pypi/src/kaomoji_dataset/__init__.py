@@ -19,7 +19,7 @@ import random as _random
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 LANGS = ("en", "zh", "ja", "es", "pt", "de")
 
@@ -55,7 +55,15 @@ def _norm(value: Any) -> str:
 
 
 def _take(items: List[Kaomoji], limit: Optional[int]) -> List[Kaomoji]:
-    return items if limit is None else items[:limit]
+    """Apply a result limit.
+
+    A negative limit used to fall through to ``items[:-n]``, which quietly
+    returns everything *except* the last n — a plausible-looking wrong answer.
+    ``-1`` is a common "no limit" convention, so honour that instead.
+    """
+    if limit is None or limit < 0:
+        return items
+    return items[:limit]
 
 
 def search(

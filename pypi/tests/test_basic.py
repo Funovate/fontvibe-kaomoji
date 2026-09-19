@@ -28,6 +28,25 @@ class TestDataset(unittest.TestCase):
     def test_search_honours_limit(self):
         self.assertEqual(len(kd.search("happy", limit=3)), 3)
 
+    def test_search_defaults_to_50(self):
+        self.assertEqual(len(kd.search("happy")), 50)
+
+    def test_negative_limit_means_no_limit(self):
+        """It used to fall through to items[:-1] — a wrong answer that looks right."""
+        every = kd.search("happy", limit=-1)
+        self.assertGreater(len(every), 50)
+        expected = [
+            e for e in kd.all()
+            if any(
+                "happy" in (e["names"].get(l) or "").lower()
+                or any("happy" in str(w).lower() for w in (e["keywords"].get(l) or []))
+                for l in kd.LANGS
+            )
+        ]
+        self.assertEqual(len(every), len(expected))
+        self.assertEqual(len(kd.by_category("happy", limit=-1)), len(kd.by_category("happy")))
+        self.assertEqual(len(kd.search("happy", limit=0)), 0)
+
     def test_search_of_nonsense(self):
         self.assertEqual(kd.search("zzzzqqqqxxxx"), [])
 

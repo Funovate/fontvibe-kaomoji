@@ -40,6 +40,23 @@ t('search honours limit', () => {
   assert.strictEqual(k.search('happy', { limit: 3 }).length, 3);
 });
 
+t('search defaults to 50 results', () => {
+  assert.strictEqual(k.search('happy').length, 50);
+});
+
+t('a negative limit means no limit, not a truncated answer', () => {
+  /* It used to fall through to slice(0, -1) and hand back everything but the
+     last entry — a wrong answer that looks like a right one. */
+  const every = k.search('happy', { limit: -1 });
+  assert.ok(every.length > 50);
+  assert.strictEqual(every.length, k.all().filter((e) =>
+    k.LANGS.some((l) =>
+      (e.names?.[l] || '').toLowerCase().includes('happy') ||
+      ((e.keywords?.[l] || []).some((w) => String(w).toLowerCase().includes('happy'))))).length);
+  assert.strictEqual(k.byCategory('happy', { limit: -1 }).length, k.byCategory('happy').length);
+  assert.strictEqual(k.search('happy', { limit: 0 }).length, 0);
+});
+
 t('search of nonsense returns nothing', () => {
   assert.deepStrictEqual(k.search('zzzzqqqqxxxx'), []);
 });

@@ -117,8 +117,9 @@ Every other public kaomoji dataset is **English-only**. rofimoji, the largest of
 carries one English keyword per entry (often literally one word).
 
 Here, 69,563 entries carry `emotion` / `intent` / `subject` in **en · ja · zh · es · pt · de**,
-drawn from a controlled vocabulary of ~90 concepts, with the wording written to match
-how people in each market actually type online rather than translated word-for-word.
+drawn from a controlled vocabulary of 237 values — 116 emotion, 68 intent, 61 subject —
+with the wording written to match how people in each market actually type online rather
+than translated word-for-word.
 
 This matters because kaomoji search demand is mostly not English:
 Indonesia 15% · Mexico 11% · Brazil 10% · Chile 5% — over 40% non-English.
@@ -219,7 +220,7 @@ BibTeX:
   title        = {FontVibe Kaomoji Dataset},
   author       = {{FontVibe}},
   year         = {2026},
-  version      = {1.0.4},
+  version      = {1.0.5},
   howpublished = {\url{https://fontvibe.ai/tools/kaomoji}},
   note         = {82,109 kaomoji with semantic labels in six languages. CC BY 4.0}
 }

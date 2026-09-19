@@ -35,8 +35,14 @@ function norm(s) {
   return String(s == null ? '' : s).trim().toLowerCase();
 }
 
+/*
+ * A negative limit used to fall through to slice(0, -n), which quietly returns
+ * everything *except* the last n — a plausible-looking wrong answer. -1 is a
+ * common "no limit" convention, so honour that instead.
+ */
 function take(arr, limit) {
-  return limit == null ? arr : arr.slice(0, limit);
+  if (limit == null || limit < 0) return arr;
+  return arr.slice(0, limit);
 }
 
 /**
