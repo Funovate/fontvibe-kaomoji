@@ -32,9 +32,24 @@ See [`npm/`](npm/) for the JavaScript API.
 
 ## Coverage
 
-Merged from 7 independent source families. Pairwise overlap between them is only 1–7% —
-the kaomoji world is a set of near-disjoint islands, which is why no single existing
-dataset is close to complete.
+Merged from 7 independent source families, which turn out to barely overlap. Across the
+21 pairs, the median Jaccard overlap is **0.3%**; **four pairs share not one entry**; and
+exactly one pair clears 5% — rofimoji and emoji.nvim, the two English-side Linux pickers,
+which you would expect to. The kaomoji world is a set of near-disjoint islands, and that
+is why no single existing dataset is close to complete.
+
+Every entry carries the `sources` it came from, so that is checkable in six lines:
+
+```python
+import gzip, json, itertools, collections, statistics
+by = collections.defaultdict(set)
+for line in gzip.open("data/kaomoji.jsonl.gz", "rt", encoding="utf-8"):
+    r = json.loads(line)
+    for src in r["sources"]:
+        by[src].add(r["text"])
+o = [len(by[a] & by[b]) / len(by[a] | by[b]) for a, b in itertools.combinations(by, 2)]
+print(statistics.median(o), max(o), sum(1 for x in o if x == 0))   # 0.003  0.079  4
+```
 
 **Verify it yourself.** The script downloads each upstream file at run time and diffs it
 against this dataset. Nothing is precomputed:
