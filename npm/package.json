@@ -1,0 +1,61 @@
+{
+  "name": "kaomoji-dataset",
+  "version": "1.0.0",
+  "description": "82,109 kaomoji (Japanese text emoticons) with emotion, intent and subject labels in English, Japanese, Chinese, Spanish, Portuguese and German. Zero dependencies.",
+  "keywords": [
+    "kaomoji",
+    "顔文字",
+    "emoticon",
+    "emoticons",
+    "japanese",
+    "ascii-art",
+    "text-emoji",
+    "dataset",
+    "nlp",
+    "sentiment",
+    "multilingual",
+    "emoji"
+  ],
+  "homepage": "https://fontvibe.ai/tools/kaomoji",
+  "bugs": "https://github.com/Funovate/fontvibe-kaomoji/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Funovate/fontvibe-kaomoji.git",
+    "directory": "npm"
+  },
+  "license": "CC-BY-4.0",
+  "author": "Funovate Technology (https://fontvibe.ai)",
+  "main": "./index.js",
+  "module": "./index.mjs",
+  "types": "./index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "import": "./index.mjs",
+      "require": "./index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "kaomoji-dataset": "./cli.js"
+  },
+  "files": [
+    "index.js",
+    "index.mjs",
+    "index.d.ts",
+    "cli.js",
+    "stats.json",
+    "data/kaomoji.jsonl.gz",
+    "README.md",
+    "LICENSE",
+    "NOTICE"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false,
+  "scripts": {
+    "prepack": "node scripts/sync-data.js",
+    "test": "node test.js"
+  }
+}

@@ -17,6 +17,14 @@ our word for any of it — [a script checks it against the live upstream files](
      4   tiers, split by how safely each renders outside Japanese contexts
 ```
 
+Prefer a package to a download?
+
+```bash
+npm i kaomoji-dataset          # or: npx kaomoji-dataset 嬉しい -n 5
+```
+
+See [`npm/`](npm/) for the JavaScript API.
+
 ---
 
 ## Coverage

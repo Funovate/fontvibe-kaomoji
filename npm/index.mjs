@@ -1,0 +1,11 @@
+import mod from './index.js';
+export const all = mod.all;
+export const search = mod.search;
+export const byCategory = mod.byCategory;
+export const byEmotion = mod.byEmotion;
+export const random = mod.random;
+export const categories = mod.categories;
+export const originals = mod.originals;
+export const stats = mod.stats;
+export const LANGS = mod.LANGS;
+export default mod;
