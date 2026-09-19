@@ -181,7 +181,8 @@ Here's what we ask for — copy whichever fits:
 
 **Markdown**
 ```markdown
-Kaomoji data from [FontVibe](https://fontvibe.ai/tools/kaomoji) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+Kaomoji data from [FontVibe](https://fontvibe.ai/tools/kaomoji) ·
+[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
 ```
 
 **HTML**

@@ -14,8 +14,9 @@ const kaomoji = require('kaomoji-dataset');
 kaomoji.search('happy', { limit: 3 });
 // → (◕‿◕)   (・∀・)ノ   ヽ(ˇ∀ˇ )ゞ
 
-kaomoji.search('嬉しい', { limit: 3 });   // the same three — labels are cross-lingual
-kaomoji.search('开心',   { limit: 3 });   // and so is this
+// the same three — the labels are cross-lingual
+kaomoji.search('嬉しい', { limit: 3 });
+kaomoji.search('开心',   { limit: 3 });
 
 kaomoji.random({ category: 'sad' }).text;  // → (╥﹏╥)
 kaomoji.stats.total;                       // → 82109
@@ -81,8 +82,15 @@ Every call after that is free. If you only need a handful of faces at startup, c
   "emotion": ["happy", "smile", "glad", "cheerful", "joy"],
   "intent": [],
   "subject": [],
-  "names":    { "en": "Happy face", "ja": "にこにこ顔", "zh": "开心脸", "es": "Cara feliz", "pt": "Cara feliz", "de": "Gesicht, fröhlich" },
-  "keywords": { "en": ["happy", "smile", "glad"], "ja": ["嬉しい", "笑顔", "草", "www"], "zh": ["开心", "哈哈", "awsl"] },
+  "names": {
+    "en": "Happy face", "ja": "にこにこ顔",   "zh": "开心脸",
+    "es": "Cara feliz", "pt": "Cara feliz", "de": "Gesicht, fröhlich"
+  },
+  "keywords": {
+    "en": ["happy", "smile", "glad"],
+    "ja": ["嬉しい", "笑顔", "草", "www"],
+    "zh": ["开心", "哈哈", "awsl"]
+  },
   "origin": "traditional",
   "locale_scope": ["*"],
   "tier": "core",
@@ -110,7 +118,9 @@ Free for commercial use, redistribution and modification. In exchange, **credit 
 where your users can see it**. The licence lets us specify the form; this is it:
 
 ```html
-Kaomoji data from <a href="https://fontvibe.ai/tools/kaomoji">FontVibe</a> (CC BY 4.0)
+Kaomoji data from
+<a href="https://fontvibe.ai/tools/kaomoji">FontVibe</a>
+(CC BY 4.0)
 ```
 
 Plain text, where a link is impossible:
