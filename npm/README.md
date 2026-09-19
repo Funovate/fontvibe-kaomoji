@@ -142,6 +142,7 @@ The 106 original kaomoji and all the metadata we produced are additionally relea
 ---
 
 Built and maintained by [FontVibe](https://fontvibe.ai).
-Browse all 82,109 rendered and searchable at
-[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji) ·
-[顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji)
+Browse them rendered and one-click copyable at
+[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji) — the English page carries the
+10,939 that render safely outside Japanese contexts, and
+[顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji) carries the whole corpus.

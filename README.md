@@ -2,8 +2,11 @@
 
 **82,109 kaomoji (Japanese text emoticons), with semantic labels in 6 languages.**
 
-Browse and copy them all at **[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)**
-— searchable, one click to copy, no install. This repo is the raw data behind it.
+Browse and copy them at **[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)**
+— one click to copy, no install. The English page carries the 10,939 that render safely
+outside Japanese contexts; the Japanese page,
+**[顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji)**, carries the whole corpus.
+This repo is the raw data behind both; every one of the 82,109 is in it.
 
 Every publicly available kaomoji dataset we could find is covered here at **97.8–100%**,
 and the few entries that aren't are ones we deliberately exclude. You don't have to take
@@ -203,8 +206,8 @@ A few things worth saying plainly:
 - **A link is not strictly required** — CC BY's exact words are "to the extent reasonably
   practicable". In a terminal app or a printed piece, plain text is fine.
 - **Please link the site, not just this repo.** `fontvibe.ai/tools/kaomoji` is the canonical
-  home: it's where all 82,109 are rendered, searchable and one-click copyable, and it's what
-  your users will actually find useful. The repo is the raw data behind it.
+  home: it's where they're rendered and one-click copyable, which is what your users will
+  actually find useful. The repo is the raw data behind it.
 
 ## Citing it
 
@@ -242,6 +245,6 @@ and update the coverage table. Found a mislabelled entry? PRs welcome; `id` is s
 ---
 
 Built and maintained by [FontVibe](https://fontvibe.ai).
-The browsable version, with all 82,109 rendered and searchable, is at
-[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)
-(Japanese: [顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji)).
+The browsable version is at [fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)
+(English page: the 10,939 that render safely outside Japanese contexts) and
+[顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji) (Japanese page: the whole corpus).

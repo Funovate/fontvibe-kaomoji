@@ -1,6 +1,6 @@
 {
   "name": "kaomoji-dataset",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "82,109 kaomoji (Japanese text emoticons) with emotion, intent and subject labels in English, Japanese, Chinese, Spanish, Portuguese and German. Zero dependencies.",
   "keywords": [
     "kaomoji",

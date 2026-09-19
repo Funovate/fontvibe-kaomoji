@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "kaomoji-dataset"
-version = "1.0.2"
+version = "1.0.3"
 description = "82,109 kaomoji (Japanese text emoticons) with emotion, intent and subject labels in six languages. No dependencies."
 readme = "README.md"
 requires-python = ">=3.8"
