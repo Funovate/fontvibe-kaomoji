@@ -150,7 +150,7 @@ that's the fastest way for us to find out.
 | `data/mixed.json` | 29,209 | 25 MB | Face plus a short Japanese phrase |
 | `data/verbose.json` | 41,890 | 35 MB | The Japanese 顔文字＋セリフ tradition — face plus a full line of dialogue |
 | `data/kaomoji.jsonl.gz` | 82,109 | 4.7 MB | Everything, one JSON object per line |
-| `data/kaomoji.csv` | 82,109 | 6.6 MB | `text,keywords` — drop-in shape for rofimoji-style pickers |
+| `data/kaomoji.csv` | 82,109 | 6.6 MB | `text,keywords`, **no header row** — drop-in shape for rofimoji-style pickers |
 | `data/originals.json` | 106 | 0.1 MB | The original ones |
 | `data/stats.json` | — | — | Counts, machine-readable |
 
@@ -219,7 +219,7 @@ BibTeX:
   title        = {FontVibe Kaomoji Dataset},
   author       = {{FontVibe}},
   year         = {2026},
-  version      = {1.0.0},
+  version      = {1.0.4},
   howpublished = {\url{https://fontvibe.ai/tools/kaomoji}},
   note         = {82,109 kaomoji with semantic labels in six languages. CC BY 4.0}
 }
