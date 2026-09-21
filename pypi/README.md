@@ -38,7 +38,7 @@ four open-source projects, 20 Japanese IME dictionaries, a web collection and ou
 library — deduplicated, and labelled so you can query it by *meaning* rather than by
 remembering which English word the author happened to pick.
 
-- **69,563 entries carry semantic labels** (85%) — emotion, intent, subject, drawn from a
+- **69,679 entries carry semantic labels** (85%) — emotion, intent, subject, drawn from a
   controlled vocabulary, not free text
 - **Names and keywords in all six languages**, so the four queries above return the same rows
 - **Tiered by shape**, so you can ask for just the clean faces: `core` (10,842) are pure

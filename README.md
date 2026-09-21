@@ -14,7 +14,7 @@ our word for any of it — [a script checks it against the live upstream files](
 
 ```
 82,109   kaomoji
-69,563   with semantic labels (emotion / intent / subject) in en · ja · zh · es · pt · de
+69,679   with semantic labels (emotion / intent / subject) in en · ja · zh · es · pt · de
    106   original kaomoji, designed for feelings that had no kaomoji before
     52   categories
      4   tiers, split by how safely each renders outside Japanese contexts
@@ -131,8 +131,8 @@ See [`data/originals.json`](data/originals.json).
 Every other public kaomoji dataset is **English-only**. rofimoji, the largest of them,
 carries one English keyword per entry (often literally one word).
 
-Here, 69,563 entries carry `emotion` / `intent` / `subject` in **en · ja · zh · es · pt · de**,
-drawn from a controlled vocabulary of 237 values — 116 emotion, 68 intent, 61 subject —
+Here, 69,679 entries carry `emotion` / `intent` / `subject` in **en · ja · zh · es · pt · de**,
+drawn from a controlled vocabulary of 275 values — 144 emotion, 75 intent, 65 subject —
 with the wording written to match how people in each market actually type online rather
 than translated word-for-word.
 
@@ -235,7 +235,7 @@ BibTeX:
   title        = {FontVibe Kaomoji Dataset},
   author       = {{FontVibe}},
   year         = {2026},
-  version      = {1.0.5},
+  version      = {1.0.6},
   howpublished = {\url{https://fontvibe.ai/tools/kaomoji}},
   note         = {82,109 kaomoji with semantic labels in six languages. CC BY 4.0}
 }
