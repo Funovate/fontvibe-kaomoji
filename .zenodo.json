@@ -1,0 +1,45 @@
+{
+  "upload_type": "dataset",
+  "title": "FontVibe Kaomoji Dataset: 82,109 kaomoji merged from seven independent collections, with six-language semantic labels",
+  "description": "<p>82,109 kaomoji (Japanese text emoticons) merged and deduplicated from seven independent source families. Every entry carries the sources it came from, so the overlap statistics can be recomputed from the shipped data.</p><p>The seven collections barely overlap: across the 21 pairs the median Jaccard overlap is 0.3%, four pairs share not a single entry, and only one clears 5%. 73,302 entries exist only in the Japanese IME dictionaries and appear in none of the English-side collections.</p><p>69,679 entries carry emotion, intent and subject labels drawn from a controlled vocabulary in English, Japanese, Chinese, Spanish, Portuguese and German, so equivalent terms across those languages return the same entries. A four-level tier split marks how safely each entry renders outside Japanese contexts. 106 entries are original work, drawn for concepts that had no kaomoji, and are released CC0.</p><p>Coverage against each upstream source is verified at run time rather than asserted: <code>scripts/verify_coverage.py</code> downloads each upstream file when it runs and prints every entry it does not carry.</p><p>Also distributed as <code>kaomoji-dataset</code> on npm and PyPI. A browsable version of the corpus is at <a href=\"https://fontvibe.ai/ja/tools/kaomoji\">fontvibe.ai/ja/tools/kaomoji</a>.</p>",
+  "creators": [
+    {
+      "name": "FontVibe"
+    }
+  ],
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "language": "eng",
+  "keywords": [
+    "kaomoji",
+    "顔文字",
+    "emoticons",
+    "japanese",
+    "text emoticons",
+    "unicode",
+    "multilingual",
+    "sentiment labels",
+    "corpus",
+    "deduplication"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://fontvibe.ai/tools/kaomoji",
+      "relation": "isVariantFormOf",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://www.npmjs.com/package/kaomoji-dataset",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://pypi.org/project/kaomoji-dataset/",
+      "relation": "isIdenticalTo",
+      "resource_type": "software",
+      "scheme": "url"
+    }
+  ]
+}
