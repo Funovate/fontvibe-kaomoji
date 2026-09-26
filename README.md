@@ -1,9 +1,11 @@
 # kaomoji
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.22945292.svg)](https://doi.org/10.5281/zenodo.22945292)
+
 **82,109 kaomoji (Japanese text emoticons), with semantic labels in 6 languages.**
 
 Browse and copy them at **[fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)**
-— one click to copy, no install. The English page carries the 10,939 that render safely
+— one click to copy, no install. The English page carries the 11,020 that render safely
 outside Japanese contexts; the Japanese page,
 **[顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji)**, carries the whole corpus.
 This repo is the raw data behind both; every one of the 82,109 is in it.
@@ -262,5 +264,5 @@ and update the coverage table. Found a mislabelled entry? PRs welcome; `id` is s
 
 Built and maintained by [FontVibe](https://fontvibe.ai).
 The browsable version is at [fontvibe.ai/tools/kaomoji](https://fontvibe.ai/tools/kaomoji)
-(English page: the 10,939 that render safely outside Japanese contexts) and
+(English page: the 11,020 that render safely outside Japanese contexts) and
 [顔文字一覧](https://fontvibe.ai/ja/tools/kaomoji) (Japanese page: the whole corpus).
